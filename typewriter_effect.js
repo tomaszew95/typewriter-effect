@@ -47,7 +47,8 @@
                             console.log(component)
     
                             var period = beforeErasePause || 2000;
-                            if (wordRotate) {
+                            if (wordRotate != null) {
+                                console.log('trigger')
                                 new TxtType(elements[i], JSON.parse(wordRotate), period, erase);
                                 component.payload = null
                             }
