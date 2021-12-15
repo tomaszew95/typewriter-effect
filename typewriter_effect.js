@@ -31,7 +31,6 @@
                         $(id).addClass("type-write");
                     });
 
-
                     setTimeout(function () {
                         var elements = document.getElementsByClassName("type-write");
                         for (var i = 0; i < elements.length; i++) {
@@ -44,11 +43,9 @@
                                 var erase = "false";
                             }
                             var wordRotate = component.payload;
-                            console.log(elements[i].classList)
     
                             var period = beforeErasePause || 2000;
                             if (wordRotate && ($(elements[i]).hasClass('added-effect') == false)) {
-                                console.log('trigger')
                                 new TxtType(elements[i], JSON.parse(wordRotate), period, erase);
                                 elements[i].classList.add('added-effect')
                             }
