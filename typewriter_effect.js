@@ -26,7 +26,6 @@
                 var animation = experience.findComponentsByTag("type-writer");
                 experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallbackText);
                 function pageChangedCallbackText(){
-                    console.log('works')
                     animation.components.forEach(function (component) {
                         var id = "#" + component.id;
                         $(id).addClass("type-write");
@@ -45,6 +44,7 @@
                                 var erase = "false";
                             }
                             var wordRotate = component.getPayload();
+                            console.log(component)
     
                             var period = beforeErasePause || 2000;
                             if (wordRotate) {
