@@ -49,6 +49,7 @@
                             var period = beforeErasePause || 2000;
                             if (wordRotate) {
                                 new TxtType(elements[i], JSON.parse(wordRotate), period, erase);
+                                component.payload = null
                             }
                         }
                     }, 1000);
