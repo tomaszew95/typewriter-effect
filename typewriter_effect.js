@@ -35,7 +35,6 @@
                     setTimeout(function () {
                         var elements = document.getElementsByClassName("type-write");
                         for (var i = 0; i < elements.length; i++) {
-                            elements[i].classList.add('added-effect')
                             var id = elements[i].id;
                             var component = myExperience.findComponentById(id);
                             var tags = component.getTags();
@@ -45,13 +44,13 @@
                                 var erase = "false";
                             }
                             var wordRotate = component.payload;
-                            console.log(elements[i])
+                            console.log(elements[i].classList)
     
                             var period = beforeErasePause || 2000;
                             if (wordRotate && ($(elements[i]).hasClass('added-effect') == false)) {
                                 console.log('trigger')
                                 new TxtType(elements[i], JSON.parse(wordRotate), period, erase);
-                                component.payload = null
+                                elements[i].classList.add('added-effect')
                             }
                         }
                     }, 1000);
