@@ -44,7 +44,7 @@
                                 var erase = "false";
                             }
                             var wordRotate = component.getPayload();
-                            console.log(component)
+                            console.log(component, wordRotate)
     
                             var period = beforeErasePause || 2000;
                             if (wordRotate != null) {
