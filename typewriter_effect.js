@@ -1,4 +1,4 @@
-var txtTypes = []
+var txtTypes = [];
 (function () {
     "use strict";
     var scriptTag = document.getElementById("type-writer"),
