@@ -1,3 +1,4 @@
+var txtTypes = []
 (function () {
     "use strict";
     var scriptTag = document.getElementById("type-writer"),
@@ -23,7 +24,7 @@
             .done(function (experience) {
                 window.myExperience = experience;
                 var animation = experience.findComponentsByTag("type-writer");
-                var txtTypes = []
+                // var txtTypes = []
 
                 experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallbackText);
                 function pageChangedCallbackText(){
@@ -49,7 +50,6 @@
                             if (wordRotate && ($(elements[i]).hasClass('added-effect') == false)) {
                                 let newest = new TxtType(elements[i], JSON.parse(wordRotate), period, erase);
                                 txtTypes.push(newest)
-                                console.log(txtTypes)
                                 elements[i].classList.add('added-effect')
                             }
                         }
@@ -57,7 +57,6 @@
 
                     for(let txt of txtTypes){
                         clearTimeout(txt.cancelTimeout)
-                        console.log(txt.cancelTimeout)
                         // txt.tick()
                     }
     
