@@ -58,7 +58,7 @@
                     for(let txt of txtTypes){
                         clearTimeout(txt.cancelTimeout)
                         console.log(txt.cancelTimeout)
-                        txt.tick()
+                        // txt.tick()
                     }
     
                     var TxtType = function (el, wordRotate, period, erase) {
