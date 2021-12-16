@@ -22,8 +22,9 @@
             })
             .done(function (experience) {
                 window.myExperience = experience;
-
                 var animation = experience.findComponentsByTag("type-writer");
+                var txtTypes = []
+
                 experience.on(CerosSDK.EVENTS.PAGE_CHANGED, pageChangedCallbackText);
                 function pageChangedCallbackText(){
                     animation.components.forEach(function (component) {
@@ -46,11 +47,18 @@
     
                             var period = beforeErasePause || 2000;
                             if (wordRotate && ($(elements[i]).hasClass('added-effect') == false)) {
-                                new TxtType(elements[i], JSON.parse(wordRotate), period, erase);
+                                let newest = new TxtType(elements[i], JSON.parse(wordRotate), period, erase);
+                                txtTypes.push(newest)
+                                console.log(txtTypes)
                                 elements[i].classList.add('added-effect')
                             }
                         }
                     }, 1000);
+
+                    for(let txt of txtTypes){
+                        clearTimeout(txt.cancelTimeout)
+                        txt.tick()
+                    }
     
                     var TxtType = function (el, wordRotate, period, erase) {
                         this.wordRotate = wordRotate;
@@ -64,6 +72,7 @@
                         this.tick();
                         this.isDeleting = false;
                         this.cursor = true;
+                        this.cancelTimeout
                     };
     
                     TxtType.prototype.tick = function () {
@@ -116,7 +125,7 @@
                             delta = beforeNewWordPause || 500;
                         }
     
-                        setTimeout(function () {
+                        this.cancelTimeout = setTimeout(function () {
                             that.tick();
                         }, delta);
                     };
