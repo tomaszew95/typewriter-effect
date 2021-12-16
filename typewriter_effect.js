@@ -57,6 +57,7 @@
 
                     for(let txt of txtTypes){
                         clearTimeout(txt.cancelTimeout)
+                        console.log(txt.cancelTimeout)
                         txt.tick()
                     }
     
